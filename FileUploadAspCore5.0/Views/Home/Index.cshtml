@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FileUploadAspCore5._0.Models.Employee>
+
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<h1>EmployeeList</h1>
+
+<p>
+    <a asp-action="CreateEmployee" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+        
+            <th>
+                Picture
+            </th>
+            <th>Download File</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+             
+                <td>
+                    <img src="@item.FilePath" alt="Alternate Text" width="70" height="80" />
+                </td>
+                <td>
+                    <a asp-controller="Home" asp-action="Download" asp-route-id="@item.Id" class="btn btn-success">Download</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "CreateEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CreateEmployee</h1>
+
+<html>
+<head>
+    <title></title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <form asp-controller="Home" asp-action="PostNewEmployee" method="post" enctype="multipart/form-data">
+        <input type="text" name="EmpName" value="" class="form-control" placeholder="Enter Name" /><br />
+        <input type="email" name="Email" value="" class="form-control" placeholder="Enter Email" /><br />
+        <input type="file" name="IDataFile" value="" class="form-control" placeholder="Select File" /><br />
+        <input type="submit" name="name" value="Save" class="btn btn-success" />
+
+    </form>
+    <a asp-action="Index">Back to List</a>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>
